@@ -26,7 +26,6 @@ public class MioThread extends Thread{
             do{
                 input = in.readLine();
                 if (input.equals("exit")){
-                    System.out.println("chiusura");
                     break;
                 }
                     
@@ -43,31 +42,30 @@ public class MioThread extends Thread{
                         out.writeBytes(ans + "\n");
                         break;
                     
-                    case "exit" :
-                        ans = null;
-                        break;
                     case "2":
                         ans = input.toLowerCase();
                         out.writeBytes(ans + "\n");
                         break;
                     
                     case "3":
-                        System.out.println("scelta 3");
+                        
                         ans = new StringBuilder(input).reverse().toString();
                         out.writeBytes(ans + "\n");
                         break;
                     
                     case "4":
-                        System.out.println("scelta 4");
+                        
                         int tmp = input.length();
                         out.writeBytes(tmp + "\n") ;                    
                         break;
-                    
-                   
-                                               
+                  
+
                     default:
-                        System.out.println("valore input errato");
-                        
+                    System.out.println("ERRORE");
+                        String errore = "!";
+                        out.writeBytes(errore + "\n");
+                        break;
+                       
                 }
                 
             }while(true);
