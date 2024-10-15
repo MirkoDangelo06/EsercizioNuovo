@@ -20,8 +20,6 @@ public class MioThread extends Thread{
         try {
             String input;
             String sceltaInput;
-            boolean errore = false;
-            boolean uscita = false;
             String ans = "";
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             DataOutputStream out = new DataOutputStream(socket.getOutputStream());
@@ -45,6 +43,9 @@ public class MioThread extends Thread{
                         out.writeBytes(ans + "\n");
                         break;
                     
+                    case "exit" :
+                        ans = null;
+                        break;
                     case "2":
                         ans = input.toLowerCase();
                         out.writeBytes(ans + "\n");
@@ -66,7 +67,7 @@ public class MioThread extends Thread{
                                                
                     default:
                         System.out.println("valore input errato");
-                        errore = true;
+                        
                 }
                 
             }while(true);
